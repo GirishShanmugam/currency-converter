@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<title>Currency Converter</title>
+<h1>Currency Converter</h1>
+<form action="/" method="POST">
+    Amount: <input type="text" name="amount" value="">
+    <select name="from_currency">
+        {% for key, value in options.items() %}
+            <option value={{key}}>{{value}}</option>
+        {% endfor %}
+    </select>
+    To
+    <select name="to_currency">
+        {% for key, value in options.items() %}
+            <option value={{key}}>{{value}}</option>
+        {% endfor %}
+    </select>
+  <input type="submit"><br><br>
+    {% if result %}
+    <b> Converted Amount is:  {{result.result_amount}} </b> as on {{result.result_time}}<br/>
+    {{result.result_unit}}<br/>
+    {{result.inverse_result_unit}}
+    {% endif %}
+</form>
+</html>
